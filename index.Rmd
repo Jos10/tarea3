@@ -8,7 +8,6 @@ output:
 
 ```{r setup, include=FALSE}
 library(flexdashboard)
-library(flexdashboard)
 library(dplyr)
 library(ggplot2)
 library(ggthemes)
@@ -22,7 +21,9 @@ library(sf)
 library(leaflet)
 library(flexdashboard)
 library(stringi)
+
 ```
+
 ```{r}
 Est_pol <-
 read_xls("estadisticaspoliciales2021.xls") 
@@ -34,6 +35,7 @@ cantones <-
   ) %>%
   st_transform(4326) # transformación a WGS84
 ```
+
 # Mapa
 
 Column {data-width=650}
@@ -168,6 +170,7 @@ leaflet() %>%
     title = "Cantidad de delitos"
   )
 ```
+
 # Tabla
 
 Column {data-width=350}
@@ -190,7 +193,9 @@ Est_pol %>%
 options = list(
   language = list(url = '//cdn.datatables.net/plug-ins/1.10.11/i18n/Spanish.json')
 ))
+
 ```
+
 # Gráficos
 
 Column {data-width=350}
@@ -212,6 +217,7 @@ ggtitle("Cantidad de delitos por tipo de delito") +
 ggplotly(Delitos) %>% 
   config(locale = 'es')
 ```
+
 ### Delitos por cantones
 
 ```{r}
@@ -231,6 +237,7 @@ delitos_cantones <-
 ggplotly(delitos_cantones)
 
 ```
+
 Column {data-width=350}
 -----------------------------------------------------------------------
 
@@ -271,6 +278,4 @@ ggplotly(Apiladas_propor_genero) %>%
   config(locale = 'es')
 
 ```
-
-
 
